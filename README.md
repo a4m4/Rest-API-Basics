@@ -8,6 +8,15 @@ JSON is the most common data format used for both req and res.
 Rest APIs are decoupled from the clients that use them, they dont share any connection history or store any connection history.
 REST apis doesnt store connection history.
 
+To create new Nodejs backend logics, we have to first install dependencies which are :
+   1- npm install --save express
+   2- npm install --save nodemon 
+
+Then open package json file and make heading of start in scripts tag of "start : "nodemon app.js"   //any file name from where you wanna start server
+
+
+
+
 Attach data in JSON format and let other end know by setting the "content-type" header.
 CORS(Cross-origin-resource-shairing) error occur when using an API that doesnot set CORS header.
  CORS can be done by following function :
