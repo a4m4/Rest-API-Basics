@@ -31,3 +31,6 @@ CORS(Cross-origin-resource-shairing) error occur when using an API that doesnot 
             res.setHeader('Access-Control-Allow-Headers', 'Content-Type', 'Authorization');  // or you can use * for all
             
             });
+
+
+JSON.stringify() is a method that takes js object and convert it into json
