@@ -10,9 +10,13 @@ REST apis doesnt store connection history.
 
 To create new Nodejs backend logics, we have to first install dependencies which are :
    1- npm install --save express
-   2- npm install --save nodemon 
+   2- npm install --save nodemon       //to add restart of server facility
+   3- npm install --save body-parser   // to add routes
 
 Then open package json file and make heading of start in scripts tag of "start : "nodemon app.js"   //any file name from where you wanna start server
+
+For form data, we will use body-parser as : app.use(bodyParser.urlEncoded());
+For json data, we will use body-parser as : app.use(bodyParser.json());
 
 
 
