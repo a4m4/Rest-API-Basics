@@ -54,11 +54,41 @@ and for logic :
             return res.status(422).json({ message: 'Validation failed' });
             }
             
-Express works simple and the alternate of above error given by express is :
+Express works simple and the alternate of above error given by express is :   // more elegant way
    if(!errors.isEmpty()) {
          const error = new Error('Validation failed');
          error.statuscode = 422;
          throw error;
       }
+      
+    is hi file k end me jo catch hhoga na usme end me next(err); zarur krna hoga
+    
+      and by using this, at the end of routes use this function :
+         app.use((error,req,res,next) => { console.log(error)
+                                           const status : error.statusCode;
+                                           const message : error.message;
+                                           res.status(status).json({ message: message }); 
+                                           });
+         
             
 Server side validation and client side validation are not same, they works according to their logics.
+
+
+To upload images on server side db, install package on server project file:
+    npm install --save multer
+the go in app.js file:
+    const multer = require('multer'); 
+then you have to :
+   const fileStorage = multer.diskStorage({
+   destination : （req,file,cb）=> {
+      cb(null, 'images');
+               },
+    filename : (req,file,cb) => {
+      cb(null, new Date().toISOString() + '-' + file.originalname); 
+                 }
+   });
+   
+   for the use of this :
+      app.use(
+            multer({ storage : fileStorage ,  fileFilter : fileFilter }).single('image')
+            );
