@@ -37,6 +37,7 @@ JSON.stringify() is a method that takes js object and convert it into json
 
 For Server side validation we have to install one package i.e
    npm install --save express-validator
+  
    then it should require in Routes file where you wanna validate like :
    const { body/check } = require('express-validator/check');  
 and for use in any route :
@@ -52,3 +53,5 @@ and for logic :
    if(!errors.isEmpty()) {
             return res.status(422).json({ message: 'Validation failed' });
             }
+            
+Server side validation and client side validation are not same, they works according to their logics.
