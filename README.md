@@ -54,4 +54,11 @@ and for logic :
             return res.status(422).json({ message: 'Validation failed' });
             }
             
+Express works simple and the alternate of above error given by express is :
+   if(!errors.isEmpty()) {
+         const error = new Error('Validation failed');
+         error.statuscode = 422;
+         throw error;
+      }
+            
 Server side validation and client side validation are not same, they works according to their logics.
