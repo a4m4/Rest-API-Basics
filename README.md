@@ -44,3 +44,11 @@ and for use in any route :
                [ body('title').trim.isLength({min: 5}),
                  body('content').trim.isLength({min: 5})],
                feedController.createPost);
+
+To send error when validation is not met , we have to implement some logic on server side and it is done in controllers file where :
+   const { validationResult } = require('express-validator/check'); 
+and for logic :
+   const errors = validationResult(req);
+   if(!errors.isEmpty()) {
+            return res.status(422).json({ message: 'Validation failed' });
+            }
